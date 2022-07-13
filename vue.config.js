@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: "/",
+  publicPath: "./",
   productionSourceMap: false,
   chainWebpack: (config) => {
     // 一个规则里的 基础Loader
