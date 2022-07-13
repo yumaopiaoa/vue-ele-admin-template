@@ -1,0 +1,75 @@
+body {
+    height: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+        Microsoft YaHei, Arial, sans-serif;
+}
+
+em,i{
+    font-style: normal;
+}
+
+label {
+    font-weight: 700;
+}
+
+::selection {
+    /*设置选中区域文字背景变化*/
+    text-shadow: none;
+    color: #fff;
+    background-color: $baseColor;
+    /*为选中文字设置背景颜色*/
+}
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#app {
+    height: 100%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+}
+
+
+#app .main-container>.el-scrollbar>.el-scrollbar__wrap {
+    overflow-x: hidden;
+}
+
+// 美化滚动条
+.el-table__body-wrapper::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.el-table__body-wrapper::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 3px;
+}
+
+//main-container全局样式
+.app-container {
+    padding: 0 16px;
+}
