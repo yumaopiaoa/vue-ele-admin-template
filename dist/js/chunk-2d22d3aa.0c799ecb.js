@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d22d3aa"],{f736:function(n,a,e){"use strict";e.r(a);var t=function(){var n=this,a=n.$createElement,e=n._self._c||a;return e("div",{staticClass:"app-container"},[e("el-card",[n._v(" 我是一个列表页面 ")])],1)},c=[],l={},s=l,r=e("2877"),u=Object(r["a"])(s,t,c,!1,null,null,null);a["default"]=u.exports}}]);

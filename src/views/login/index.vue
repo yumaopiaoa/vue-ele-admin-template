@@ -1,7 +1,11 @@
 <template>
   <div class="login-container">
     <div class="login-form">
+      <div class="mask">
+        <div class="welcome">WELCOME</div>
+      </div>
       <div class="form-wrap">
+        <h3 class="login-title">后台登录</h3>
         <el-form
           class="login-box"
           ref="loginForm"
@@ -61,7 +65,7 @@
           <el-button
             :loading="loading"
             type="primary"
-            style="width: 100%; margin-bottom: 25px; height: 48px"
+            style="width: 100%; margin-bottom: 25px; height: 36px"
             @click.native.prevent="handleLogin"
           >
             立即登录
@@ -69,11 +73,13 @@
         </el-form>
       </div>
     </div>
+    <div class="copy">
+      Copyright &copy; xxxx科技有限公司
+    </div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "Login",
   data() {
@@ -168,7 +174,7 @@ $cursor: #333;
 .login-container {
   .el-input {
     display: inline-block;
-    height: 47px;
+    height: 36px;
     width: 84%;
     input {
       background: transparent;
@@ -177,7 +183,7 @@ $cursor: #333;
       border-radius: 0px;
       padding: 12px 5px 12px 12px;
       color: $light_gray;
-      height: 47px;
+      height: 36px;
       caret-color: $cursor;
       &:-webkit-autofill {
         -webkit-box-shadow: 0 0 0px 1000px $bg inset !important;
@@ -186,7 +192,7 @@ $cursor: #333;
     }
   }
   .el-form-item {
-    border: 1px solid #dddddd;
+    border: 1px solid #eee;
     background: $bg;
     border-radius: 5px;
     color: #454545;
@@ -200,23 +206,56 @@ $light_gray: #eee;
 .login-container {
   min-height: 100%;
   width: 100%;
-  background: #f0f0f0;
+  background: #fff;
   overflow: hidden;
   .login-form {
     background-color: #fff;
-    box-shadow: 0px 5px 10px rgba(0,0,0, 0.2);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
     top: 0;
     margin: auto;
-    width: 856px;
-    height: 525px;
+    width: 800px;
+    height: 500px;
     max-width: 100%;
     overflow: hidden;
-    border-radius: 10px;
-    
+    border-radius: 6px;
+
+    .mask {
+      position: absolute;
+      left: -600px;
+      top: -10px;
+      width: 1000px;
+      height: 1000px;
+      border-radius: 50%;
+      background: rgba(24, 144, 255, 0.6);
+      .welcome {
+        color: #fff;
+        position: absolute;
+        font-size: 24px;
+        right: 220px;
+        top: 240px;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 30px;
+          height: 3px;
+          border-radius: 3px;
+          background: #fff;
+          bottom: -5px;
+          left: 0;
+        }
+      }
+    }
+
+    .login-title {
+      text-align: center;
+      margin-bottom: 48px;
+      color: #1890ff;
+      letter-spacing: 3px;
+    }
     .form-wrap {
       width: 270px;
       position: absolute;
@@ -249,15 +288,24 @@ $light_gray: #eee;
   .show-pwd {
     position: absolute;
     right: 10px;
-    top: 7px;
+    top: 2px;
     font-size: 14px;
     color: $dark_gray;
     cursor: pointer;
     user-select: none;
-    .svg-icon{
+    .svg-icon {
       width: 1.2em;
       height: 1.2em;
     }
+  }
+
+  .copy {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #999;
+    font-size: 13px;
   }
 }
 </style>
