@@ -18,15 +18,4 @@ module.exports = {
         symbolId: "icon-[name]",
       });
   },
-  devServer: {
-    proxy: {
-      "/api": {
-        target: `http://localhost:8012`,
-        changeOrigin: true,
-        pathRewrite: {
-          "^/api": "",
-        },
-      },
-    },
-  },
 };

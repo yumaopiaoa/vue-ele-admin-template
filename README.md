@@ -1,7 +1,7 @@
 
 ```bash
 # enter the project directory
-cd pure_admin
+cd admin-vue-template
 
 # install dependency
 npm install
