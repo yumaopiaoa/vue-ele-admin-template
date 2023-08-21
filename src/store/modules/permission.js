@@ -50,9 +50,10 @@ const permission = {
       return new Promise((resolve) => {
         const { roles } = data;
         let accessedRouters;
+        // 如果权限是管理员 直接赋予所有权限
         if (roles.includes("admin")) {
           accessedRouters = asyncRouterMap;
-        } else {
+        }else{
           accessedRouters = filterAsyncRouter(asyncRouterMap, roles);
         }
         commit("SET_ROUTERS", accessedRouters);

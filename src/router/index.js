@@ -80,6 +80,22 @@ export const constantRouterMap = [
       },
     },],
   },
+  {
+    path: "/validate",
+    component: Layout,
+    redirect: "noredirect",
+    children: [{
+      path: "index",
+      component: () => import("@/views/validate/index"),
+      name: "validate_index",
+      meta: {
+        title: "validate验证",
+        icon: "el-icon-odometer",
+        noCache: true,
+        affix: false,
+      },
+    },],
+  },
 ];
 
 export default new Router({
