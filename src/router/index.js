@@ -22,17 +22,16 @@ Vue.use(Router);
 
 export const constantRouterMap = [
   {
-    path: '/redirect',
+    path: "/redirect",
     component: Layout,
     hidden: true,
     children: [
       {
-        path: '/redirect/:path(.*)',
-        component: () => import('@/views/redirect/index')
-      }
-    ]
+        path: "/redirect/:path(.*)",
+        component: () => import("@/views/redirect/index"),
+      },
+    ],
   },
-
   {
     path: "/login",
     component: () => import("@/views/login/index"),
@@ -52,50 +51,100 @@ export const constantRouterMap = [
     path: "/",
     component: Layout,
     redirect: "dashboard",
-    children: [{
-      path: "dashboard",
-      component: () => import("@/views/dashboard/index"),
-      name: "Dashboard",
-      meta: {
-        title: "首页",
-        icon: "el-icon-odometer",
-        noCache: true,
-        affix: true,
+    children: [
+      {
+        path: "dashboard",
+        component: () => import("@/views/dashboard/index"),
+        name: "Dashboard",
+        meta: {
+          title: "首页",
+          icon: "el-icon-monitor",
+          noCache: true,
+          affix: true,
+        },
       },
-    },],
+    ],
   },
   {
-    path: "/list",
+    path: "/actlist",
     component: Layout,
     redirect: "noredirect",
-    children: [{
-      path: "index",
-      component: () => import("@/views/list/index"),
-      name: "list_index",
-      meta: {
-        title: "列表",
-        icon: "el-icon-odometer",
-        noCache: true,
-        affix: false,
+    children: [
+      {
+        path: "index",
+        component: () => import("@/views/actlist/index"),
+        name: "list_index",
+        meta: {
+          title: "活动列表",
+          icon: "el-icon-present",
+          noCache: true,
+          affix: false,
+        },
       },
-    },],
+      {
+        hidden: true,
+        path: "act_item",
+        component: () => import("@/views/actlist/item"),
+        name: "list_index_actItem",
+        meta: {
+          activeMenu: "/actlist/index",
+          title: "活动item",
+        },
+      },
+      {
+        hidden: true,
+        path: "act_statistics",
+        component: () => import("@/views/actlist/statistics"),
+        name: "list_index_actStatistics",
+        meta: {
+          activeMenu: "/actlist/index",
+          title: "活动统计",
+        },
+      },
+    ],
   },
   {
-    path: "/validate",
+    hidden: process.env.NODE_ENV === "production",
+    path: "/wxtools",
     component: Layout,
     redirect: "noredirect",
-    children: [{
-      path: "index",
-      component: () => import("@/views/validate/index"),
-      name: "validate_index",
-      meta: {
-        title: "validate验证",
-        icon: "el-icon-odometer",
-        noCache: true,
-        affix: false,
+    meta: {
+      title: "微信助手",
+      icon: "book",
+    },
+    children: [
+      {
+        path: "gettoken",
+        component: () => import("@/views/wxtools/gettoken"),
+        name: "wxtools_gettoken",
+        meta: {
+          title: "授权token",
+          noCache: true,
+          affix: false,
+        },
       },
-    },],
-  },
+      {
+        path: "msg",
+        component: () => import("@/views/wxtools/msg"),
+        name: "wxtools_msg",
+        meta: {
+          title: "模板消息",
+          noCache: true,
+          affix: false,
+        },
+      },
+      {
+        path: "user",
+        component: () => import("@/views/wxtools/user"),
+        name: "wxtools_user",
+        meta: {
+          title: "用户列表",
+          noCache: true,
+          affix: false,
+        },
+      },
+    ]
+  }
 ];
 
 export default new Router({
@@ -103,8 +152,10 @@ export default new Router({
   routes: constantRouterMap,
 });
 
-export const asyncRouterMap = [{
-  path: "*",
-  redirect: "/404",
-  hidden: true
-}];
+export const asyncRouterMap = [
+  {
+    path: "*",
+    redirect: "/404",
+    hidden: true,
+  },
+];

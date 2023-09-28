@@ -1,0 +1,1 @@
+export const imageBaseUrl = process.env.NODE_ENV === "production" ? "/": "http://10.10.10.49/";

@@ -24,8 +24,8 @@ export default {
   },
   data() {
     return {
-      title: '一个管理后台',
-      logo: 'https://fastly.picsum.photos/id/593/200/200.jpg?hmac=E26lTUTkzs_AeuWXrkT-kFTudfYDTVCjgKVE_HDzRmk'
+      title: '一个后台系统',
+      logo: '	https://panjiachen.gitee.io/vue-element-admin-site/home.png'
     }
   }
 }
